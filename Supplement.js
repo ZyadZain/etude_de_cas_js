@@ -166,7 +166,7 @@ class Supplement {
     }
 
     /**
-     * Applique un style sobre et élégant au menu passé en paramètre.
+     * Applique un style au menu passé en paramètre.
      * @static
      * @param {HTMLElement} ul - L'élément <ul> du menu à styler.
      */
@@ -186,10 +186,6 @@ class Supplement {
         items.forEach(li => {
             // Ne PAS toucher au display - laissé à Menu
             Object.assign(li.style, {
-                
-                // background: '#f0f0f0',
-                // color: '#333',
-                //border: '10px solid #ccc',
                 borderRadius: '4px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
@@ -198,14 +194,10 @@ class Supplement {
             });
             
             li.addEventListener('mouseover', () => {
-                //li.style.background = '#e0e0e0';
-                //li.style.borderColor = '#999';
                 li.style.transform = 'translateY(-2px)';
             });
             
             li.addEventListener('mouseout', () => {
-                //li.style.background = '#f0f0f0';
-                //li.style.borderColor = '#ccc';
                 li.style.transform = 'translateY(0)';
             });
         });
