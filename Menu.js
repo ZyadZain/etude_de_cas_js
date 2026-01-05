@@ -136,23 +136,11 @@ class Menu {
         return this;
     }
 
-    /**
-     * Supprime un élément à un index spécifique.
-     * @param {number} index - L'index de l'élément à supprimer.
-     * @returns {Menu} L'instance de Menu pour chaînage.
-     */
-    removeItem(index) {
-        if (index < 0 || index >= this.labels.length) {
-            console.warn('Index invalide pour removeItem');
-            return this;
-        }
-
-        this.labels.splice(index, 1);
-        this.ul.children[index].remove();
-        this._updateEventListeners();
-
-        return this;
-    }
+    /*
+       À partir d'ici nous sortons du cadre des tâches demandées pour cette étude
+       de cas pour essayer de rajouter quelques fonctionnalités supplémentaires 
+       non essentielles au fonctionnement de la classe Menu de départ
+    */
 
     /**
      * Ajoute un nouvel élément à une position spécifique via un formulaire.
@@ -203,7 +191,7 @@ class Menu {
                 Supplement.styleMenuAsNavbar(this.ul);
             }
 
-            // Suppression du formulaire
+            // Suppression du formulaire après un ajout 
             //inputForm.remove();
         });
 
@@ -245,13 +233,14 @@ let menuObj = menu.getObjDOM();
 menuObj.addEventListener('menu_click', evt =>
     console.log(`Clic sur ${menu.labels[evt.detail.index]}`));
 
+//Fonctionnalité Optionnelle - Appliquer le style navbar
 menu.applyNavbarStyle();
 document.body.appendChild(menuObj);
 
-// Ajouter un item à la position 1 (après "Accueil")
-menu.setEsp(30).addItemAt(labels.length);
+//Fonctionnalité Optionnelle - Ajouter un item à la position 1 (après "Accueil")
+menu.setEsp(100).addItemAt(labels.length);
 
-// Message de countdown
+//Fonctionnalité Optionnelle - Message de countdown
 menu.messageShutdown(5);
 
 // Changement après 5 secondes
@@ -259,6 +248,6 @@ setTimeout(() => {
     menu.setEsp(100).setDisp(1).addItem('Test');
 }, 5000);
 
-// Bouton burger
+//Fonctionnalité Optionnelle - Bouton burger
 const burgerBtn = Supplement.btnBurgerForDisp(menu);
 document.body.appendChild(burgerBtn);
